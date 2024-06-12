@@ -90,7 +90,7 @@ Document Type Declaration (<!DOCTYPE html>): Specifies the HTML5 document type.
 
 HTML Structure:
 
-"<html>:" The root element of the HTML document.
+//<html>: The root element of the HTML document.
 "<head>:" Contains meta-information about the HTML document, such as the title, viewport settings, links to external resources (stylesheets, icons), and scripts.
 "<body>:" Contains the content of the HTML document, including header, main content, and footer sections.
 Head Section:
