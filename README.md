@@ -90,22 +90,20 @@ Document Type Declaration (<!DOCTYPE html>): Specifies the HTML5 document type.
 
 HTML Structure:
 
-<html>: The root element of the HTML document.
-<head>: Contains meta-information about the HTML document, such as the title, viewport settings, links to external resources (stylesheets, icons), and scripts.
-<body>: Contains the content of the HTML document, including header, main content, and footer sections.
+"<html>:" The root element of the HTML document.
+"<head>:" Contains meta-information about the HTML document, such as the title, viewport settings, links to external resources (stylesheets, icons), and scripts.
+"<body>:" Contains the content of the HTML document, including header, main content, and footer sections.
 Head Section:
 
-<title>: Sets the title of the web page.
-<link rel="icon">: Specifies the favicon (shortcut icon) for the web page.
-<link rel="apple-touch-icon">: Specifies the icon for Apple devices.
-<meta name="viewport">: Defines the viewport properties for responsive web design.
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>: Imports the jQuery library for JavaScript functionality.
+"<title>:" Sets the title of the web page.
+"<meta name="viewport">:" Defines the viewport properties for responsive web design.
+"<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>:" Imports the jQuery library for JavaScript functionality.
 Styling:
 
-The <style> block contains CSS rules that define the appearance and layout of elements on the page. It includes styles for the header, container, footer, chat interface, input field, and media queries for responsive design.
+The "<style>" block contains CSS rules that define the appearance and layout of elements on the page. It includes styles for the header, container, footer, chat interface, input field, and media queries for responsive design.
 Body Section:
 
-<div class="header">: Defines the header section of the page, including the title and logo.
+"<div class="header">": Defines the header section of the page, including the title and logo.
 <div class="container">: Contains the main content of the page, including the chat interface and additional information.
 <div class="right-column"> and <div class="left-column">: Divides the content into two columns, with the chat interface on the right and additional information on the left.
 <div class="footer">: Defines the footer section of the page, including copyright information and credits.
