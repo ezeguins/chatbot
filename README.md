@@ -1,7 +1,9 @@
 # Test RAG Chatbot
 
-This project aims to implement the state-of-the-art techniques in Retrieval-Augmented Generation (RAG). Our primary objective is to collaboratively engage in a hands-on, end-to-end project that leverages the latest advancements in the LangChain library <img src="img/langchain.png" alt="Description" width="20"/>.Additionally, we focus on the interaction with the vector database Pinecone <img src="img/pinecone.png" alt="Description" width="15"/> 
+This project aims to implement the state-of-the-art techniques in Retrieval-Augmented Generation (RAG). Our primary objective is to collaboratively engage in a hands-on, end-to-end project that leverages the latest advancements in the LangChain library <img src="img/langchain.png" alt="Description" width="20"/>. Additionally, we focus on the interaction with the vector database Pinecone <img src="img/pinecone.png" alt="Description" width="15"/> 
  ensuring a cutting-edge approach to data management and retrieval.
+ 
+ As you will see, deployment is treated as a key element of the project.
 
 ### My own application can be found here: https://eguins.info
 
