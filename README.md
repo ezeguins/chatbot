@@ -39,16 +39,47 @@ Before diving into the project coding, it's essential to set up accounts with Pi
 
 ### OpenAI
 OpenAI offers a suite of powerful APIs and models for natural language processing and generation. With an OpenAI account, you gain access to state-of-the-art language models, including GPT (Generative Pre-trained Transformer) models, which can be used to power your chatbot's conversational capabilities.
+
 To know how to get your OpenAI API key: https://www.youtube.com/watch?v=6LAl5IJM080
 
 ### Pinecone
 Pinecone provides a scalable vector database solution, allowing you to store and query high-dimensional vector data efficiently. By creating a Pinecone account, you can set up your vector database, configure indexing parameters, and integrate it seamlessly into your project workflow.
+
 To get started with Pinecone follow this video: https://www.youtube.com/watch?v=AGKY_Q3GjRc
 
 ### Langchain
 LangChain provides a comprehensive library of tools and resources for implementing advanced language processing techniques. By creating a LangChain account, you can access pre-trained models, libraries, and utilities that will streamline the development process and enhance the performance of your chatbot.
+
 It is recommended to register and implement LangSmith.
 
 ## Vector database population
 
 To populate the Pinecone DB you have to execute this notebook: [inicial.ipynb](inicial.ipynb)
+
+## Retrieval-Augmented Generation (RAG)
+
+The code in [application.py](application.py) file implements RAG in latest version of LangChain.
+
+Here's a breakdown of what each part of the code is doing:
+
+Setting API Keys: The variables OPENAI_API_KEY, LANGCHAIN_API_KEY, and PINECONE_API_KEY store the API keys needed to authenticate with the respective services.
+
+Initializing ChatOpenAI: This creates an instance of the ChatOpenAI class, which likely interacts with OpenAI's GPT-3.5 model to generate responses to user input.
+
+Embedding Technique with OpenAI: An instance of the OpenAIEmbeddings class is created to handle text embeddings using OpenAI's model. The embed_query method is then called to embed the text "hola" and print its length.
+
+Connecting to Pinecone Database: This part connects to the Pinecone vector database using the PineconeVectorStore class. It sets up an index with a given name and namespace and creates a retriever for querying the database based on embeddings.
+
+Creating Chat Prompt Template: A chat prompt template is created using the ChatPromptTemplate class. It defines the prompt structure for the chatbot, including placeholders for system prompts, chat history, and user input.
+
+Creating Conversation Chains: Two conversation chains are created using the create_stuff_documents_chain and create_retrieval_chain functions. These chains likely define the conversation flow and how the chatbot interacts with the Pinecone database to retrieve relevant information.
+
+Defining Session History Storage: A dictionary named store is defined to store session history for the chatbot. The get_session_history function retrieves the session history for a given session ID.
+
+Invoking Conversation Chain: The conversational_rag_chain is invoked with user input and session configuration. It generates a response from the chatbot based on the conversation chain's logic and stores the session history in the store dictionary.
+
+Defining Completion Function: The get_completion function is defined to handle user input and retrieve the chatbot's response. It invokes the conversation chain and returns the last message from the session history.
+
+## Web application
+
+The Flask app is instatiated in the mentioned [application.py](application.py)  file
