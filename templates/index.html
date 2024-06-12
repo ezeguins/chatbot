@@ -2,6 +2,8 @@
 <html>
 <head>
     <title>Ezequiel's ChatBot</title>
+    <link rel="icon" href="static/fav.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/fav_apple.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,23 +27,18 @@
             height: auto; /* Maintain aspect ratio */
         }
         .container {
-            margin-top: 55px;
             padding-bottom: 30px;
             display: flex;
             height: 100%;
             margin-top: 0; /* Elimina el margen superior */
-            margin-bottom: 0; /* Elimina el margen inferior */
+            margin-bottom: 0;
         }
-        @media (max-width: 768px) {
-            .container {
-                margin-top: 100px; /* Ajusta este valor según sea necesario */
-            }
-        }
+
         .header {
             font-family: 'Roboto Flex', sans-serif;
-            background-color: #3f48cc;
+            background-color: #667eea;
             color: rgb(255, 255, 255);
-            text-align: center;
+            text-align: left;
             padding: 1px;
             position: fixed;
             width: 100%;
@@ -50,10 +47,13 @@
             z-index: 1000;
             
         }
-
+        .header-text {
+            padding-left: 40px;
+            padding-right: 40px /* Add left padding to the text */
+        }
         .footer {
             font-family: 'Roboto Flex', sans-serif;
-            background-color: #3f48cc;
+            background-color: #667eea;
             color: rgb(255, 255, 255);
             text-align: center;
             padding: 3px;
@@ -67,7 +67,7 @@
         }
 
         .footer a {
-            color: #4169e1;
+            color: #3f48cc;
             text-decoration: none;
         }
 
@@ -76,95 +76,195 @@
         }
         .left-column {
             font-family: 'Roboto Flex', sans-serif;
-            width: 60%;
-            padding: 50px;
+            width: 40%; /* Default width */
+            padding: 60px 20px 40px;
             border-right: 1px solid #ccc;
             overflow-y: auto;
             line-height: 1;
-            margin-top: 0; /* Elimina el margen superior */
-            margin-bottom: 0; /* Elimina el margen inferior */
+            margin: 0;
         }
+
         .right-column {
-            width: 40%;
-            padding: 60px;
+            width: 60%; /* Default width */
+            padding: 60px 0 10px;
+            display: flex;
+            flex-direction: column;
+            background-color: #c3dafe;
+        }
+
+
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            height: 100vh;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+            background-color: #c3dafe;
+        }
+
+        #chatbox {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
             display: flex;
             flex-direction: column;
         }
-        #chatbox {
-            flex-grow: 0;
-            overflow-y: auto;
-            margin-top: 0px;
+
+        .userText, .botText {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            max-width: 95%;
+            line-height: 1.5;
+            word-wrap: break-word;
+            padding: 10px;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
         }
-        #userInput {
-            width: 100%;
-            margin-top: 1px;
-        }
-        #textInput {
-            width: 100%;
-            border: 1px solid rgb(26, 158, 21);
-            margin-top: 1px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 16px;
-        }
+
         .userText {
+            align-self: flex-start;
+            background-color: #667eea;
             color: white;
-            font-family: 'Roboto', sans-serif;;
-            font-size: 16px;
-            text-align: right;
-            line-height: 19px;
+            font-family: 'Roboto', sans-serif;
         }
-        .userText span {
-            background-color: #808080;
-            padding: 2px;
-            border-radius: 2px;
-        }
+
         .botText {
-            color: white;
-            font-family: monospace;
-            font-size: 16px;
-            text-align: left;
-            line-height: 19px;
+            position: relative;
+            align-self: flex-start;
+            background-color: #ffffff;
+            color: #333;
+            font-family: 'Roboto', sans-serif;
+            padding-left: 60px; /* Adjust padding to make room for the bot icon */
+            margin-bottom: 10px;
+            border-radius: 10px;
+            animation: fadeIn 0.5s;
         }
+
+        .botIcon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 1; /* Ensure the icon is above the text */
+        }
+
         .botText span {
-            background-color: #4169e1;
+            z-index: 0; /* Ensure the text is behind the icon */
+        }
+
+        .botText img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 50%;
+        }
+
+        #userInput {
+            
+            display: flex;
+            border-top: 1px solid #e0e0e0;
+            padding: 10px;
+            background-color: #c3dafe;
+                        
+        }
+
+        #textInput {
+            flex-grow: 1;
+            border: none;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 16px;
+            background-color: #eceff1;
+            transition: background-color 0.2s ease;
+        }
+
+        #textInput:focus {
+            outline: none;
+            background-color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media screen and (max-width: 768px) {
+
+            .header {
+                font-size: 1.8vh;
+            }
+            .footer {
+                display: none;
+            }
+            .container {
+                margin-top: 3vh; /* Ajusta este valor según sea necesario */
+                flex-direction: column; /* Change to a single column layout */
+                align-items: center; 
+            }
+
+            .left-column, .right-column {
+                margin-top: 5vh;
+                width: calc(100% - 40px); /* Make both columns full width with padding */
+                padding: 2vh; /* Add padding to both columns */
+                box-sizing: border-box; /* Include padding in the width calculation */
+                border-top: 1px solid #ccc;
+                overflow-y: auto;
+                line-height: 1;
+                font-size: 2vh;
+            }
+
+            #chat-container {
+                height: 40vh;
+            }
+
+            #chatbox {
             padding: 2px;
-            border-radius: 2px;
+            }
         }
-        .boxed {
-            margin-left: auto;
-            margin-right: auto;
-            width: 40%;
-            margin-top: 20px;
-            border: 1px solid green;
-        }
+        
        
     </style>
 </head>
 <body>
     <div class="header">
-        <h3>Ezequiel Guinsburg's professional ChatBot - Test project implementing the state of the art in RAG</h3>
+        <h3 class="header-text">Ezequiel Guinsburg's professional ChatBot - Test project implementing the state of the art in RAG</h3>
     </div>
     <div class="container">
         <!-- Header Section -->
 
-        <div class="left-column">
 
-            <h4 align="left"><b>You will be able to ask the chatbot about my <span style="color: blue;"><b>professional career</b></span> and, in more detail, about my <span style="color: blue;"><b>post-graduate thesis</b></span>.</b></h4>
+        <div class="right-column">
+            <h3 class="header-text"><b>Play around with my chatbot!</b></h3>
+            <div id="chat-container">
+                <div id="chatbox">
+                    <div class="botText">
+                        <img class="botIcon" src="static/fav.png" alt="Bot">
+                        <span>Hi! Ask me about Ezequiel's professional career and my post-graduate thesis</span>
+                    </div>
+                </div>
+                <div id="userInput">
+                    <input id="textInput" type="text" name="msg" placeholder="Message" />
+                </div>
+            </div>
+        </div>
+        <div class="left-column">
             <h4 align="left"><b>Block representation of the model:</b></h4>
             <p align="center"><img src="static/chatbotdrawio.png" alt="schema" width = 100%></p>
-            <h4 align="left"><b>Check out my <a href="https://www.github.com" target="_blank">GitHub page</a>. There you will find the code and the how-to.</b></h4>
-        </div>
-        <div class="right-column">
-            <p align="center"><img src="static/eg1.png" alt="Python-BOT" height="52"></p>
-            <div id="chatbox">
-                <p class="botText">
-                    <span>Hi! </span>
-                    <span>Ask me about my professional career and my post-graduate thesis</span>
-                </p>
-            </div>
-            <div id="userInput">
-                <input id="textInput" type="text" name="msg" placeholder="Message" />
-            </div>
+            <h4 align="left"><b>Check out my <a href="https://github.com/ezeguins/chatbot" target="_blank">GitHub page</a>. There you will find the code and the how-to.</b></h4>
+            <h4 align="left"><b>Contact me through <a href="https://www.linkedin.com/in/ezequiel-guinsburg/" target="_blank">my Linkedin profile</a></b></h4>
         </div>
         <div class="footer">
             <p>Copyright &copy; 2024 Ezequiel's ChatBot. All rights reserved.   Designed by Ezequiel Guinsburg</p>
@@ -180,7 +280,10 @@
                 .getElementById("userInput")
                 .scrollIntoView({ block: "start", behavior: "smooth" });
             $.get("/get", { msg: rawText }).done(function (data) {
-                var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                var botHtml = '<div class="botText">';
+                    botHtml += '<img class="botIcon" src="static/fav.png" alt="Bot Icon">';
+                    botHtml += '<span>' + data + "</span>";
+                    botHtml += '</div>';
                 $("#chatbox").append(botHtml);
                 document
                     .getElementById("userInput")
