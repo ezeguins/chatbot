@@ -8,6 +8,13 @@ This project aims to implement the state-of-the-art techniques in Retrieval-Augm
 ## Table of Contents
 
 1. [Introduction](#introduction)
+2. [Readiness](#readiness)
+3. [Vector database population](#vector-database-population)
+4. [Retrieval-Augmented Generation (RAG)](#Retrieval-Augmented-Generation-(RAG))
+5. [Web application](#Web-application)
+6. [Deployment](#Deployment)
+
+## Introduction
 
 Welcome to the ChatBotRAG project, where we embark on a journey to showcase the cutting-edge advancements in conversational AI technology. Our primary goal is to demonstrate the state-of-the-art capabilities of Retrieval-Augmented Generation (RAG), a powerful approach that combines retrieval-based methods with generative models to create more contextually relevant responses.
 
@@ -23,16 +30,6 @@ The model block diagram is represented as:
 
  ![Project Logo](img/chatbotdrawio.png),
 
-2. [Readiness](#readiness)
-
-3. [Vector database population](#vector-database-population)
-4. [Retrieval-Augmented Generation (RAG)](#Retrieval-Augmented-Generation-(RAG))
-5. [Web application](#Web-application)
-6. [Deployment](#Deployment)
-
-## Introduction
-
-Provide a brief introduction to your project. Describe what it does, why it exists, and its main features.
 
 ## Readiness
 
