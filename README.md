@@ -3,6 +3,8 @@
 This project aims to implement the state-of-the-art techniques in Retrieval-Augmented Generation (RAG). Our primary objective is to collaboratively engage in a hands-on, end-to-end project that leverages the latest advancements in the LangChain library <img src="img/langchain.png" alt="Description" width="20"/>.Additionally, we focus on the interaction with the vector database Pinecone <img src="img/pinecone.png" alt="Description" width="15"/> 
  ensuring a cutting-edge approach to data management and retrieval.
 
+### My own application can be found here: https://eguins.info
+
  ![Project Logo](img/img.png),
 
 ## Table of Contents
@@ -16,6 +18,10 @@ This project aims to implement the state-of-the-art techniques in Retrieval-Augm
 4. [Retrieval-Augmented Generation (RAG)](#Retrieval-Augmented-Generation-(RAG))
 5. [Web application](#Web-application)
 6. [Deployment](#Deployment)
+    - [AWS Elastic Beanstalk](#AWS-Elastic-Beanstalk)
+    - [AWS EC2 instance](#AWS-EC2-instance)
+    - [AWS Lightsail and Docker](#AWS-Lightsail-and-Docker)
+
 
 ## Introduction
 
@@ -90,24 +96,41 @@ Document Type Declaration (<!DOCTYPE html>): Specifies the HTML5 document type.
 
 HTML Structure:
 
-//<html>: The root element of the HTML document.
-"<head>:" Contains meta-information about the HTML document, such as the title, viewport settings, links to external resources (stylesheets, icons), and scripts.
-"<body>:" Contains the content of the HTML document, including header, main content, and footer sections.
+html: The root element of the HTML document.
+head: Contains meta-information about the HTML document, such as the title, viewport settings, links to external resources (stylesheets, icons), and scripts.
+body: Contains the content of the HTML document, including header, main content, and footer sections.
 Head Section:
 
-"<title>:" Sets the title of the web page.
-"<meta name="viewport">:" Defines the viewport properties for responsive web design.
-"<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>:" Imports the jQuery library for JavaScript functionality.
+title: Sets the title of the web page.
+script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js": Imports the jQuery library for JavaScript functionality.
 Styling:
 
-The "<style>" block contains CSS rules that define the appearance and layout of elements on the page. It includes styles for the header, container, footer, chat interface, input field, and media queries for responsive design.
+The style block contains CSS rules that define the appearance and layout of elements on the page. It includes styles for the header, container, footer, chat interface, input field, and media queries for responsive design.
 Body Section:
 
-"<div class="header">": Defines the header section of the page, including the title and logo.
-<div class="container">: Contains the main content of the page, including the chat interface and additional information.
-<div class="right-column"> and <div class="left-column">: Divides the content into two columns, with the chat interface on the right and additional information on the left.
-<div class="footer">: Defines the footer section of the page, including copyright information and credits.
+div class="header": Defines the header section of the page, including the title and logo.
+div class="container": Contains the main content of the page, including the chat interface and additional information.
+div class="right-column" and div class="left-column": Divides the content into two columns, with the chat interface on the right and additional information on the left.
+div class="footer": Defines the footer section of the page, including copyright information and credits.
 JavaScript:
 
 Inline JavaScript functions handle user interaction with the chatbot. getBotResponse() function sends user input to the server and displays bot responses in the chat interface. Key press event listener triggers the getBotResponse() function when the Enter key is pressed in the text input field.
 Overall, this index.html code creates a basic web page with a chatbot interface, allowing users to interact with the chatbot and receive responses. The page layout is responsive, adjusting its appearance based on the device screen size.
+
+## Deployment
+
+I´ll present three different ways to deploy the project. All of them involve AWS, but with important variations.
+    
+### AWS Elastic Beanstalk
+
+This implementation may be the most suitable for CI/CD and production environments. However, it is also the most expensive among the three options presented.
+The full documentation in this official link: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html
+
+### AWS EC2 instance
+
+The most manual option for deployment involves setting up a virtual machine as a web server. For this purpose, we utilize GUNICORN and CADDY, as demonstrated in this video: 
+https://www.youtube.com/watch?v=vfZgHX5ttsY
+
+### AWS Lightsail and Docker
+
+Finally, and equally important, the Docker deployment option is a production-ready solution, explained in detail in this official documentation: https://aws.amazon.com/es/tutorials/serve-a-flask-app/
