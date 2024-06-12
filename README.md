@@ -51,3 +51,4 @@ It is recommended to register and implement LangSmith.
 
 ## Vector database population
 
+To populate the Pinecone DB you have to execute this notebook: [inicial.ipynb](inicial.ipynb)
