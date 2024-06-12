@@ -5,7 +5,7 @@ This project aims to implement the state-of-the-art techniques in Retrieval-Augm
 
  As you will see, deployment is treated as a key element of the project.
 
-### My own application can be found here: [https://eguins.info](https://eguins.info){:target="_blank"}
+### My own application can be found here: <a href="https://eguins.info" target="_blank">https://eguins.info</a>
 
  ![Project Logo](img/img.png),
 
@@ -48,12 +48,15 @@ Before diving into the project coding, it's essential to set up accounts with Pi
 ### OpenAI
 OpenAI offers a suite of powerful APIs and models for natural language processing and generation. With an OpenAI account, you gain access to state-of-the-art language models, including GPT (Generative Pre-trained Transformer) models, which can be used to power your chatbot's conversational capabilities.
 
-To know how to get your OpenAI API key: https://www.youtube.com/watch?v=6LAl5IJM080
+To know how to get your OpenAI API key follow this <a href="https://www.youtube.com/watch?v=6LAl5IJM080" target="_blank">video</a>
+
 
 ### Pinecone
 Pinecone provides a scalable vector database solution, allowing you to store and query high-dimensional vector data efficiently. By creating a Pinecone account, you can set up your vector database, configure indexing parameters, and integrate it seamlessly into your project workflow.
 
-To get started with Pinecone follow this video: https://www.youtube.com/watch?v=AGKY_Q3GjRc
+To get started with Pinecone follow this <a href="https://www.youtube.com/watch?v=AGKY_Q3GjRc" target="_blank">video</a>
+
+: 
 
 ### Langchain
 LangChain provides a comprehensive library of tools and resources for implementing advanced language processing techniques. By creating a LangChain account, you can access pre-trained models, libraries, and utilities that will streamline the development process and enhance the performance of your chatbot.
@@ -126,13 +129,15 @@ I´ll present three different ways to deploy the project. All of them involve AW
 ### AWS Elastic Beanstalk
 
 This implementation may be the most suitable for CI/CD and production environments. However, it is also the most expensive among the three options presented.
-The full documentation in this official link: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html
+The full documentation in this <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html" target="_blank">official link</a>
+
+
 
 ### AWS EC2 instance
 
-The most manual option for deployment involves setting up a virtual machine as a web server. For this purpose, we utilize GUNICORN and CADDY, as demonstrated in this video: 
-https://www.youtube.com/watch?v=vfZgHX5ttsY
+The most manual option for deployment involves setting up a virtual machine as a web server. For this purpose, we utilize GUNICORN and CADDY, as demonstrated in <a href="https://www.youtube.com/watch?v=vfZgHX5ttsY" target="_blank">this video</a>. 
+
 
 ### AWS Lightsail and Docker
 
-Finally, and equally important, the Docker deployment option is a production-ready solution, explained in detail in this official documentation: https://aws.amazon.com/es/tutorials/serve-a-flask-app/
+Finally, and equally important, the Docker deployment option is a production-ready solution, explained in detail in this <a href="https://aws.amazon.com/es/tutorials/serve-a-flask-app/" target="_blank">official documentation</a> 
